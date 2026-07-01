@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Task Manager</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Task Manager</h1>
+      <p class="subtitle">Stay on top of what matters</p>
+    </header>
+
+    <section class="task-form-card">
+      <form id="task-form">
+        <input type="hidden" id="task-id" />
+        <div class="row">
+          <input type="text" id="title" placeholder="Task title" required />
+          <input type="text" id="category" placeholder="Category (e.g. Work)" />
+        </div>
+        <textarea id="description" placeholder="Description (optional)" rows="2"></textarea>
+        <div class="row">
+          <label class="field">
+            <span>Due date</span>
+            <input type="date" id="dueDate" />
+          </label>
+          <label class="field">
+            <span>Priority</span>
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Status</span>
+            <select id="status">
+              <option value="todo" selected>To do</option>
+              <option value="in-progress">In progress</option>
+              <option value="done">Done</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="submit-btn">Add Task</button>
+          <button type="button" id="cancel-edit" class="secondary hidden">Cancel</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="controls">
+      <input type="text" id="search" placeholder="Search tasks..." />
+      <select id="filter-status">
+        <option value="">All statuses</option>
+        <option value="todo">To do</option>
+        <option value="in-progress">In progress</option>
+        <option value="done">Done</option>
+      </select>
+      <select id="filter-priority">
+        <option value="">All priorities</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <input type="text" id="filter-category" placeholder="Filter by category" />
+      <select id="sort-by">
+        <option value="createdAt">Sort: Newest</option>
+        <option value="dueDate">Sort: Due date</option>
+        <option value="priority">Sort: Priority</option>
+        <option value="title">Sort: Title</option>
+      </select>
+    </section>
+
+    <section id="task-list" class="task-list">
+      <p class="empty-state" id="empty-state">No tasks yet. Add one above to get started.</p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
