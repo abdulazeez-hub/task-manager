@@ -1,8 +1,6 @@
 name: Python Flask CI Pipeline
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -76,4 +74,4 @@ jobs:
           sudo docker rm task-manager || true
 
           # Run new container
-          sudo docker run -d --name task-manager -p 80:5000 ${{ secrets.DOCKER_USERNAME }}/task-manager:${{ github.sha }}
+          sudo docker run -d --name task-manager -p 80:3000 ${{ secrets.DOCKER_USERNAME }}/task-manager:${{ github.sha }}
