@@ -1,0 +1,14 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "A simple Node.js + Express task manager with JSON file storage",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
