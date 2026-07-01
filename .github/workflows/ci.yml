@@ -47,7 +47,7 @@ jobs:
           SERVER_PID=$!
           for i in $(seq 1 10); do
             if curl -sf http://localhost:3000/api/tasks > /dev/null; then
-              echo "Server responded successfully.."
+              echo "Server responded successfully."
               kill $SERVER_PID
               exit 0
             fi
@@ -72,9 +72,12 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: ${{ secrets.EC2_PORT || 22 }}
           script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd ${{ secrets.EC2_APP_PATH }}
             git fetch origin main
             git reset --hard origin/main
             npm ci --omit=dev
             pm2 restart task-manager || pm2 start server.js --name task-manager
             pm2 save
+            
