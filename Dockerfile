@@ -13,6 +13,10 @@ COPY . .
 
 # Run as a non-root user for security
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Give appuser ownership of the application files
+RUN chown -R appuser:appgroup /usr/src/app/data
+
 USER appuser
 
 EXPOSE 3000
