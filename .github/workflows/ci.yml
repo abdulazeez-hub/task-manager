@@ -3,7 +3,7 @@ name: Python Flask CI Pipeline
 on:
   pull_request:
     branches: [main]
-
+ 
 jobs:
   scan:
     runs-on: ubuntu-latest
